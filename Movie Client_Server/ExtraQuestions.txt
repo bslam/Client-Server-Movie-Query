@@ -1,0 +1,24 @@
+1. The advantage of sending responses one by one to the client is to 
+mimic a real search engine. If we send all the movies all at once and 
+our buffer was not big enough we would miss out on some of the movies. For example in our assignment 3,
+there was a gigantic file that we had to index and if we sent a query from that huge file, it would be gigantic.
+
+2. One pro of using a thread is that threads are more lightweight and require less overhead. 
+Processes are better because since they are heavyweight (by copying all the variables into a whole new process) 
+there are less sources for bugs since things are not shared between processes. In out scenario, we would have had an easier time 
+using threads because there was not a lot of information being shared between the children and the parent.
+
+3. I would create an index for each word in the query. I would separate it by “ “. So for “Sleepless In Seattle”, 
+there would be three index’s and I would send movies based upon how often it showed up in the three index’s. 
+Given the query “Sleepless in Seattle” for a set of movies “Sleepless butthead”, Sleepless in Iowa”, 
+“Taco Tuesday” and “Seattle chowder”. 
+I would return “Sleepless In Seattle”, “Sleepless in Iowa”, “Sleepless butthead” and “Seattle chowder”.
+
+4. Since the entire index is in memory, and the index has size limitation due to memory limits, 
+our movie index has a size limit for it to be functional. 
+
+5. We add the hooks to capture control + c because the operating system would simply shutdown the program BUT 
+we want to make sure we free any un-freed memory so that there are no memory leaks. Another option to kill a server 
+would be if there is another commandline input we can capture to shut down the server. A third option would be to 
+shutdown the server based upon the prescense of a file in the directory. 
+A fourth option would be to shut down the server based upon reading an input from an I/O stream.
